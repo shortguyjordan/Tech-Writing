@@ -1,0 +1,49 @@
+#openfile
+with open("wordlist.txt", "r")as wordfile:
+    words = [word.rstrip() for word in wordfile]
+import random
+from random import shuffle
+#variables
+randomw = (random.choice(words))
+secret = list(randomw)
+shuffle(secret)
+secret = ''.join(secret)
+xx = list(randomw)
+incorrect = 0
+gg = ''
+q = 0
+#print
+print("Hello there!")
+print("This game is a simple guessing game where I will show you a scrambled word, and your job is to guess the word, letter by letter in order.")
+print("Are you ready? Good luck!")
+print("The word is...")
+print(secret)
+#main
+while True:
+    guess = input("Guess a letter:     ")
+    if  guess not in xx[q]:
+        print("You are wrong.")
+        incorrect += 1
+        print("Incorrect:", incorrect)
+        continue
+    if  guess in xx[q]:
+        q += 1
+        gg += guess
+        print("Your guesses:", gg)
+        print("Incorrect:", incorrect)
+        if gg == randomw:
+            break
+
+
+print("You did it! You guessed the word correctly in", incorrect,"tries!")
+print("The correct word is", randomw)
+
+
+
+
+
+
+
+
+
+
